@@ -133,8 +133,8 @@ memory-observatory/
 ├── frontend/               # Memory Observatory UI (React 19, TypeScript, Vite, Tailwind CSS)
 │   ├── public/             # Static assets & SVG icons
 │   ├── src/
-│   │   ├── components/     # Common design system components & persistent layout
-│   │   ├── context/        # AppContext reactive state & localStorage engine
+│   │   ├── components/     # Reusable design system components & persistent layout
+│   │   ├── context/        # AppContext reactive state & localStorage persistence engine
 │   │   ├── data/           # Realistic multi-agent software engineering fixtures
 │   │   ├── pages/          # 9 Dashboard modules (Dashboard, Memories, Search, etc.)
 │   │   ├── services/       # Axios API services with live/mock fallback
@@ -142,12 +142,33 @@ memory-observatory/
 │   ├── package.json        # Frontend dependencies & npm scripts
 │   ├── tsconfig.json       # TypeScript configuration
 │   └── vite.config.ts      # Vite bundler configuration
-├── backend/                # AgentMemory Core Engine (Upcoming Phase)
-├── ci-cd/                  # CI/CD pipelines & deployment automation
-├── database/               # Database schemas, pgvector DDL & migrations
-├── docs/                   # Architecture specifications & project documentation
-├── mcp-server/             # Model Context Protocol server for AI agent integration
-├── scripts/                # Development & environment utility scripts
+├── backend/                # AgentMemory Core Governance Engine (Upcoming Phase)
+│   ├── api/                # REST API endpoints (/v1/memories, /v1/memories/search)
+│   ├── governance/         # Validation, classification, importance & confidence scoring
+│   ├── duplicate_detection/# MinHash & Jaccard similarity algorithms
+│   ├── conflict_resolution/# Contradiction detection & supersession handling
+│   ├── retrieval/          # Vector similarity search & adaptive multi-factor ranking
+│   ├── lifecycle/          # Memory consolidation & Ebbinghaus temporal decay
+│   └── storage/            # PostgreSQL pgvector & MongoDB persistence connectors
+├── database/               # Persistence Layer Schemas & Indexes
+│   ├── pgvector/           # PostgreSQL schema with 1536-dim HNSW vector indexes
+│   ├── mongodb/            # Document collections for audit logs & retrieval traces
+│   └── migrations/         # Version-controlled database migrations
+├── mcp-server/             # Model Context Protocol (MCP) Server
+│   ├── tools/              # Agent tools (propose_memory, search_memories, get_context)
+│   └── transports/         # Stdio & SSE communication channels for AI agents
+├── ci-cd/                  # Continuous Integration & Delivery
+│   ├── workflows/          # GitHub Actions test, lint, and build pipelines
+│   └── docker/             # Docker Compose & multi-container orchestration
+├── benchmarks/             # Information Retrieval (IR) Evaluation
+│   ├── retrieval/          # Datasets for MRR, Precision@K, and Recall@K
+│   └── load/               # Concurrent multi-agent access & latency tests
+├── docs/                   # Architectural & System Documentation
+│   ├── architecture/       # System design diagrams & memory lifecycle state machine
+│   └── api/                # OpenAPI contracts & memory proposal protocols
+├── scripts/                # Developer Utilities & Tooling
+│   ├── setup/              # Environment bootstrap utilities
+│   └── seeds/              # Demonstration fixture generators
 ├── .gitignore              # Git ignore rules
 └── README.md               # Project documentation
 ```
