@@ -1,5 +1,14 @@
 # Persistent Memory Infrastructure for Collaborative AI Software Engineering
-### Memory Observatory — Adaptive Memory Governance Layer for Multi-Agent Systems
+### Memory Observatory — Centralized Persistent & Adaptive Knowledge Governance Dashboard
+
+[![React](https://img.shields.io/badge/React-19.0-61dafb?logo=react&logoColor=black)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-6.0-646cff?logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Recharts](https://img.shields.io/badge/Recharts-2.x-22c55e)](https://recharts.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+> **Repository**: [https://github.com/Shreyank86/Persistent-Memory-Infrastructure-for-Collaborative-AI-Software-Engineering](https://github.com/Shreyank86/Persistent-Memory-Infrastructure-for-Collaborative-AI-Software-Engineering)
 
 ---
 
@@ -14,23 +23,21 @@ Rather than functioning as an autonomous agent or a simple conversational chatbo
 > **"The agent proposes. AgentMemory governs the memory lifecycle."**
 
 AI agents submit candidate memories during development tasks. **AgentMemory** independently governs the entire lifecycle:
-1. **Schema Validation & Classification**
-2. **Confidence Estimation & Importance Scoring**
-3. **Duplicate Detection** (MinHash with 128 permutations & Jaccard similarity)
-4. **Conflict Resolution** (Contradictory and overlapping assertion detection)
-5. **Vector Indexing & Persistence** (PostgreSQL with `pgvector` HNSW indexing)
+1. **Schema Validation & Classification** (Factual, Procedural, Episodic, Semantic, Contextual)
+2. **Confidence Estimation & Importance Scoring** (Dynamic weight assignment)
+3. **Duplicate Detection** (MinHash with 128 permutations & Jaccard threshold $\ge 0.85$)
+4. **Conflict Resolution** (Contradictory and overlapping assertion detection & resolution)
+5. **Vector Indexing & Persistence** (PostgreSQL with `pgvector` HNSW indexing, 1536-dim)
 6. **Adaptive Multi-Factor Ranking & Retrieval**
 7. **Consolidation & Automated Decay** (Ebbinghaus temporal forgetting curve)
 
 ---
 
-## 🔭 Memory Observatory Dashboard
+## 🔭 Memory Observatory Dashboard Modules
 
 The **Memory Observatory** is the administrative and telemetry frontend for monitoring, auditing, and governing the memory infrastructure in real time.
 
-### Core Modules & Views
-
-| Module | Route | Capabilities |
+| Module | Route | Key Capabilities |
 |---|---|---|
 | **Overview Dashboard** | `/` | 6 Core KPI stat cards, 5 Recharts visualizations (growth, retrievals, types, importance distribution, lifecycle breakdown), real-time audit log, and infrastructure health monitoring (PostgreSQL, pgvector, MongoDB, REST API, MCP). |
 | **Memories Store** | `/memories` | Full-text and identifier search, 6 multi-dimensional filters (Type, Status, Project, Agent, Importance, Confidence), 9-column data table, and slide-over inspector showing full embeddings, version history, scoring breakdown, and interactive governance actions. Includes **"Propose Candidate Memory"** agent simulation modal. |
@@ -46,7 +53,7 @@ The **Memory Observatory** is the administrative and telemetry frontend for moni
 
 ## 📐 Adaptive Multi-Factor Ranking Formula
 
-During semantic retrieval, memories are not ranked by cosine similarity alone. The system executes an adaptive multi-factor scoring function:
+During semantic retrieval, memories are not ranked by raw vector cosine similarity alone. The system executes an adaptive multi-factor scoring function:
 
 $$\text{Final Score} = (w_{\text{sim}} \cdot \text{Sim}) + (w_{\text{imp}} \cdot \text{Imp}) + (w_{\text{conf}} \cdot \text{Conf}) + (w_{\text{rec}} \cdot \text{Rec}) + (w_{\text{freq}} \cdot \text{Freq})$$
 
@@ -80,12 +87,14 @@ Weights are fully configurable via the **Settings** view and persist across sess
 
 - Node.js (v18 or higher recommended)
 - npm or pnpm
+- Git
 
 ### Installation & Run
 
-1. **Clone or navigate to the repository directory**:
+1. **Clone the repository**:
    ```bash
-   cd memory-observatory
+   git clone https://github.com/Shreyank86/Persistent-Memory-Infrastructure-for-Collaborative-AI-Software-Engineering.git
+   cd Persistent-Memory-Infrastructure-for-Collaborative-AI-Software-Engineering
    ```
 
 2. **Install dependencies**:
@@ -120,8 +129,8 @@ Weights are fully configurable via the **Settings** view and persist across sess
 ## 📂 Project Structure
 
 ```
-memory-observatory/
-├── public/                 # Static assets
+Persistent-Memory-Infrastructure-for-Collaborative-AI-Software-Engineering/
+├── public/                 # Static assets & SVG icons
 ├── src/
 │   ├── components/
 │   │   ├── common/         # StatCard, DataTable, SearchBar, StatusBadge, ScoreBar, ChartCard, FilterPanel
@@ -156,7 +165,7 @@ memory-observatory/
 
 ---
 
-## 🎓 Final-Year Engineering Presentation Highlights
+## 🎓 Engineering Presentation Highlights
 
 When demonstrating this project to evaluators or stakeholders:
 1. **Explain the Paradigm Shift**: Contrast standard conversational memory (simple chat history buffers) with **Autonomous Memory Governance** (independent validation, confidence scoring, conflict resolution, and decay).
@@ -164,3 +173,9 @@ When demonstrating this project to evaluators or stakeholders:
 3. **Showcase Retrieval & Dynamic Ranking**: On `/search`, demonstrate how natural language queries evaluate multiple factors (not just vector similarity). Adjust the sliders in `/settings` to show live adaptive score recalculation.
 4. **Display Lifecycle & Supersession**: On `/lifecycle`, show how outdated knowledge (`mem-009`) is superseded by updated architecture (`mem-010`), and demonstrate interactive conflict resolution.
 5. **Highlight IR Accuracy**: On `/analytics`, present the Mean Reciprocal Rank ($0.89$), Precision@K, and Recall@K curves.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
