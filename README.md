@@ -8,7 +8,7 @@
 [![Recharts](https://img.shields.io/badge/Recharts-2.x-22c55e)](https://recharts.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-> **Repository**: [https://github.com/Shreyank86/Persistent-Memory-Infrastructure-for-Collaborative-AI-Software-Engineering](https://github.com/Shreyank86/Persistent-Memory-Infrastructure-for-Collaborative-AI-Software-Engineering)
+> **Repository**: [https://github.com/Shreyank86/memory-observatory](https://github.com/Shreyank86/memory-observatory)
 
 ---
 
@@ -93,8 +93,8 @@ Weights are fully configurable via the **Settings** view and persist across sess
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/Shreyank86/Persistent-Memory-Infrastructure-for-Collaborative-AI-Software-Engineering.git
-   cd Persistent-Memory-Infrastructure-for-Collaborative-AI-Software-Engineering
+   git clone https://github.com/Shreyank86/memory-observatory.git
+   cd memory-observatory
    ```
 
 2. **Install dependencies**:
@@ -129,7 +129,7 @@ Weights are fully configurable via the **Settings** view and persist across sess
 ## 📂 Project Structure
 
 ```
-Persistent-Memory-Infrastructure-for-Collaborative-AI-Software-Engineering/
+memory-observatory/
 ├── public/                 # Static assets & SVG icons
 ├── src/
 │   ├── components/
