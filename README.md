@@ -94,7 +94,7 @@ Weights are fully configurable via the **Settings** view and persist across sess
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/Shreyank86/memory-observatory.git
-   cd memory-observatory
+   cd memory-observatory/frontend
    ```
 
 2. **Install dependencies**:
@@ -103,7 +103,7 @@ Weights are fully configurable via the **Settings** view and persist across sess
    ```
 
 3. **Configure environment variables (optional)**:
-   A default `.env` is provided. You can inspect `.env.example`:
+   A default `.env` is provided in `frontend/`. You can inspect `.env.example`:
    ```bash
    VITE_API_BASE_URL=http://localhost:8000/v1
    VITE_USE_MOCK_DATA=true
@@ -130,37 +130,26 @@ Weights are fully configurable via the **Settings** view and persist across sess
 
 ```
 memory-observatory/
-├── public/                 # Static assets & SVG icons
-├── src/
-│   ├── components/
-│   │   ├── common/         # StatCard, DataTable, SearchBar, StatusBadge, ScoreBar, ChartCard, FilterPanel
-│   │   └── layout/         # AppLayout, persistent Sidebar
-│   ├── context/
-│   │   └── AppContext.tsx  # Centralized reactive state & localStorage persistence engine
-│   ├── data/
-│   │   └── mockData.ts     # Realistic multi-agent software engineering fixtures & benchmarks
-│   ├── pages/
-│   │   ├── Dashboard/      # Main overview dashboard with 5 Recharts visualizations
-│   │   ├── Memories/       # Memory table, slide-over inspector, and candidate proposal modal
-│   │   ├── SemanticSearch/ # Semantic query interface and retrieval pipeline visualizer
-│   │   ├── Projects/       # Collaborative workspaces & personal/shared memory scoping
-│   │   ├── AIAgents/       # Agent registry & project permissions matrix
-│   │   ├── RetrievalTraces/# Query latency and multi-factor ranking trace inspector
-│   │   ├── MemoryLifecycle/# 8-state governance, supersession history, and conflict resolution
-│   │   ├── Analytics/      # Precision@K, Recall@K, MRR, and IR evaluation metrics
-│   │   └── Settings/       # ACL, embedding config, dynamic ranking weight sliders
-│   ├── services/
-│   │   ├── api.ts          # Axios base client
-│   │   └── memoryService.ts# Reusable CRUD service with mock/live fallback
-│   ├── types/
-│   │   └── index.ts        # TypeScript domain models and interfaces
-│   ├── App.tsx             # Root router wrapped with AppProvider
-│   ├── main.tsx            # DOM root entrypoint
-│   └── index.css           # Tailwind CSS imports
-├── .env.example            # Environment configuration template
-├── package.json            # Dependencies and npm scripts
-├── tsconfig.json           # TypeScript configuration
-└── vite.config.ts          # Vite bundler configuration
+├── frontend/               # Memory Observatory UI (React 19, TypeScript, Vite, Tailwind CSS)
+│   ├── public/             # Static assets & SVG icons
+│   ├── src/
+│   │   ├── components/     # Common design system components & persistent layout
+│   │   ├── context/        # AppContext reactive state & localStorage engine
+│   │   ├── data/           # Realistic multi-agent software engineering fixtures
+│   │   ├── pages/          # 9 Dashboard modules (Dashboard, Memories, Search, etc.)
+│   │   ├── services/       # Axios API services with live/mock fallback
+│   │   └── types/          # TypeScript domain interfaces
+│   ├── package.json        # Frontend dependencies & npm scripts
+│   ├── tsconfig.json       # TypeScript configuration
+│   └── vite.config.ts      # Vite bundler configuration
+├── backend/                # AgentMemory Core Engine (Upcoming Phase)
+├── ci-cd/                  # CI/CD pipelines & deployment automation
+├── database/               # Database schemas, pgvector DDL & migrations
+├── docs/                   # Architecture specifications & project documentation
+├── mcp-server/             # Model Context Protocol server for AI agent integration
+├── scripts/                # Development & environment utility scripts
+├── .gitignore              # Git ignore rules
+└── README.md               # Project documentation
 ```
 
 ---
